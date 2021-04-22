@@ -22,7 +22,12 @@ class UsersService {
     await this.usersRespository.save(user)
 
     return user;
+  }
 
+  async findByEmail(email: string) {
+    const userExists = await this.usersRespository.findOne({ email })
+
+    return userExists
   }
 }
 
